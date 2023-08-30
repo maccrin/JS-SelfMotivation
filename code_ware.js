@@ -75,3 +75,22 @@ function deleteNth(arr, n) {
     })
     return arr1
 }
+// #https://www.codewars.com/kata/5915686ed2563aa6650000ab
+function evilCodeMedal(userTime, gold, silver, bronze) {
+    userTime = userTime.split(':')
+    gold = gold.split(':')
+    silver = silver.split(':')
+    bronze = bronze.split(':')
+    userTimeTaken = userTime.map((x, i, userTime) => x * Math.pow(60, (userTime.length - 1) - i)).reduce((x, y) => x + y, 0)
+    goldTimeTaken = gold.map((x, i, userTime) => x * Math.pow(60, (userTime.length - 1) - i)).reduce((x, y) => x + y, 0)
+    silverTimeTaken = silver.map((x, i, userTime) => x * Math.pow(60, (userTime.length - 1) - i)).reduce((x, y) => x + y, 0)
+    bronzeTimeTaken = bronze.map((x, i, userTime) => x * Math.pow(60, (userTime.length - 1) - i)).reduce((x, y) => x + y, 0)
+    return userTimeTaken < goldTimeTaken ? 'Gold' : (userTimeTaken >= goldTimeTaken && userTimeTaken < silverTimeTaken ? 'Silver' : (userTimeTaken >= silverTimeTaken && userTimeTaken < bronzeTimeTaken ? 'Bronze' : 'None'))
+}
+
+// #https://www.codewars.com/users/maccrin/completed_solutions
+
+function arithmetic(a, b, operator) {
+
+    return operator === 'add' ? Number(a + b) : (operator === 'subtract' ? Number(a - b) : (operator === "multiply" ? Number(a * b) : Number(a / b)))
+}
