@@ -94,3 +94,25 @@ function arithmetic(a, b, operator) {
 
     return operator === 'add' ? Number(a + b) : (operator === 'subtract' ? Number(a - b) : (operator === "multiply" ? Number(a * b) : Number(a / b)))
 }
+// #https://www.codewars.com/kata/52fba2a9adcd10b34300094c
+function transpose(matrix) {
+    if (matrix[0].length === 1) return matrix
+    let output = [];
+    let result = [];
+    for (i = 0; i < matrix[0].length; i++) {
+        for (j = 0; j < matrix.length; j++) {
+            output.push(matrix[j][i])
+        }
+        result.push(output)
+        output = [];
+
+    }
+    return result
+}
+// #https://www.codewars.com/users/maccrin/completed_solutions
+
+function countSmileys(arr) {
+    if (arr.length === 0) return 0
+    const regex = /:-D|:-\)|;-D|;-\)|:~D|:~\)|;~D|;~\)|:D|:\)|;D|;\)/g
+    return (arr.join(' ').match(regex)) ? arr.join(' ').match(regex).length : 0
+}
